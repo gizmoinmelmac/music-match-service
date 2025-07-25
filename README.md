@@ -21,10 +21,12 @@ A production-ready microservice that converts Spotify tracks into universal musi
 ## 🔧 Quick Start
 
 ### Prerequisites
+
 - Python 3.11+
 - Spotify Developer Account ([Get credentials here](https://developer.spotify.com/dashboard))
 
 ### 1. Clone and Setup
+
 ```bash
 git clone [your-repo-url]
 cd music-booster-service
@@ -38,6 +40,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Configure Environment
+
 ```bash
 # Copy environment template
 cp .env.example .env
@@ -48,6 +51,7 @@ SPOTIFY_CLIENT_SECRET=your_client_secret_here
 ```
 
 ### 3. Run the Service
+
 ```bash
 # Development mode
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
@@ -57,8 +61,9 @@ docker-compose up -d
 ```
 
 ### 4. Test the API
-- Open http://localhost:8000/docs
-- Try the health check: http://localhost:8000/health
+
+- Open <http://localhost:8000/docs>
+- Try the health check: <http://localhost:8000/health>
 - Use the interactive API documentation
 
 ## 📖 API Endpoints
@@ -75,6 +80,7 @@ docker-compose up -d
 ## 🎯 Usage Examples
 
 ### Search Music
+
 ```bash
 curl -X POST "http://localhost:8000/search" \
      -H "Content-Type: application/json" \
@@ -82,6 +88,7 @@ curl -X POST "http://localhost:8000/search" \
 ```
 
 **Response:**
+
 ```json
 {
   "query": "Bad Bunny",
@@ -101,11 +108,13 @@ curl -X POST "http://localhost:8000/search" \
 ```
 
 ### Get Cross-Platform Links
+
 ```bash
 curl -X POST "http://localhost:8000/match/5TFD2bmFKGhoCRbX61nXY5?content_type=track"
 ```
 
 **Response:**
+
 ```json
 {
   "metadata": {...},
@@ -122,11 +131,13 @@ curl -X POST "http://localhost:8000/match/5TFD2bmFKGhoCRbX61nXY5?content_type=tr
 ```
 
 ### Get Preview Card Data
+
 ```bash
 curl "http://localhost:8000/preview-card/5TFD2bmFKGhoCRbX61nXY5"
 ```
 
 **Response:**
+
 ```json
 {
   "title": "NUEVAYoL",
@@ -148,11 +159,13 @@ curl "http://localhost:8000/preview-card/5TFD2bmFKGhoCRbX61nXY5"
 ## 🐳 Docker Deployment
 
 ### Development
+
 ```bash
 docker-compose up -d
 ```
 
 ### Production
+
 ```bash
 # Build image
 docker build -t music-booster-service:latest .
@@ -169,6 +182,7 @@ docker run -d \
 ## 🛠️ Frontend Integration
 
 ### JavaScript/React Example
+
 ```javascript
 class MusicBooster {
   constructor(baseUrl = 'http://localhost:8000') {
@@ -204,6 +218,7 @@ const cardData = await musicBooster.getPreviewCard(results.results[0].spotify_id
 ```
 
 ### React Component Example
+
 ```jsx
 function MusicCard({ query }) {
   const [cardData, setCardData] = useState(null);
@@ -257,12 +272,14 @@ function MusicCard({ query }) {
 ## 🚀 Deployment Options
 
 ### Cloud Platforms
+
 - **Heroku**: Use included `Dockerfile`
 - **AWS ECS**: Deploy with Docker
 - **Google Cloud Run**: Serverless container deployment
 - **DigitalOcean App Platform**: Git-based deployment
 
 ### Self-Hosted
+
 - **Docker Compose**: Included for easy deployment
 - **Kubernetes**: Scale with container orchestration
 - **Traditional VPS**: Run with gunicorn + nginx
@@ -306,7 +323,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 Support
 
-- **Documentation**: http://localhost:8000/docs (when running)
+- **Documentation**: <http://localhost:8000/docs> (when running)
 - **Issues**: [GitHub Issues](your-repo-url/issues)
 - **API Status**: Check `/health` endpoint
 
