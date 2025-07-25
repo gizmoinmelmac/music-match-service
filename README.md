@@ -1,4 +1,4 @@
-# 🎵 Music Booster Service
+# 🎵 Music Match Service
 
 A production-ready microservice that converts Spotify tracks into universal music links across all major streaming platforms.
 
